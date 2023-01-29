@@ -17,7 +17,8 @@ router.post("/", (req, res) => {
     ...req.body,
     status: "active",
   });
-  res.send({ data: users });
+  // res.send({ data: users });
+  res.redirect("/");
 });
 
 router.put("/:id", (req, res) => {
