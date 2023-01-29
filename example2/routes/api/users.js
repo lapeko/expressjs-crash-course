@@ -30,4 +30,11 @@ router.put("/:id", (req, res) => {
   res.send({ data: user });
 });
 
+router.delete("/:id", (req, res) => {
+  const foundIndex = users.findIndex(({ id }) => id == req.params.id);
+  if (foundIndex < 0) return res.status(404).json({ data: null });
+  users.splice(foundIndex, 1);
+  res.json({ data: req.params.id });
+});
+
 module.exports = router;
