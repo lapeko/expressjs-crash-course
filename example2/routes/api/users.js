@@ -9,5 +9,9 @@ router.get("/:id", (req, res) => {
   if (!user) return res.status(404).json({ data: null });
   res.json({ data: user });
 });
+router.post("/", (req, res) => {
+  users.push({ id: users[users.length - 1].id + 1, ...req.body });
+  res.send(users);
+});
 
 module.exports = router;
