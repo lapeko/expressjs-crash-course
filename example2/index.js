@@ -1,9 +1,11 @@
 const express = require("express");
+const logger = require("../middleware/logger");
+const { PORT } = require("./config");
 const users = require("./users");
-const PORT = process.env.PORT || "3000";
 
 const app = express();
 
-app.get("/users", (req, res) => res.json(users));
+app.use(logger);
+app.get("/api/users", (req, res) => res.json(users));
 
 app.listen(PORT, () => console.log("App is running on port:", PORT));
