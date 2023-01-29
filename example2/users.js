@@ -8,7 +8,7 @@ module.exports = [
   {
     id: 2,
     name: "Name 2",
-    email: "1@gmail.com",
+    email: "2@gmail.com",
     status: "inactive",
   },
   {
