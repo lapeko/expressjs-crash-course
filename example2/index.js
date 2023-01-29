@@ -7,6 +7,7 @@ const { PORT } = require("./config");
 const app = express();
 app.use(logger);
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/api/users", userRouter);
 
 app.listen(PORT, () => console.log("App is running on port:", PORT));
