@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env PORT=${npm_config_port} node ./example${npm_config_example:-1}/index.mjs",
-    "dev": "cross-env PORT=${npm_config_port} nodemon ./example${npm_config_example:-1}/index.mjs"
+    "start": "cross-env PORT=${npm_config_port} node ./example${npm_config_example:-1}/index",
+    "dev": "cross-env PORT=${npm_config_port} nodemon ./example${npm_config_example:-1}/index"
   },
   "repository": {
     "type": "git",
