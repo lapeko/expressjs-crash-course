@@ -6,7 +6,14 @@ const users = require("./users");
 const app = express();
 
 app.use(logger);
-app.get("/api/users", (req, res) => res.json(users));
-app.get("/api/users/:id", (req, res) => res.json(users[req.params.id - 1]));
+app.get("/api/users", (req, res) => res.json({ data: users }));
+app.get("/api/users/:id", (req, res) => {
+  const user = users.filter(({ id }) => req.params.id == id)[0];
+  if (!user) {
+    res.status(404);
+    return res.json({ data: null });
+  }
+  res.json({ data: user });
+});
 
 app.listen(PORT, () => console.log("App is running on port:", PORT));
