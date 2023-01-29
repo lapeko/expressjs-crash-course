@@ -1,7 +1,8 @@
 const logger = (req, res, next) => {
   const time = new Date().toISOString();
-  const path = `${req.protocol}://${req.get("host")}${req.originalUrl}`;
-  console.log(time, path);
+  const { protocol, originalUrl, method } = req;
+  const path = `${protocol}://${req.get("host")}${originalUrl}`;
+  console.log(method, path, time);
   next();
 };
 
